@@ -41,7 +41,7 @@ class HomeShellScreen extends StatelessWidget {
           borderRadius: BorderRadius.circular(25),
           boxShadow: [
             BoxShadow(
-              color: Colors.blue.withOpacity(0.15),
+              color: Colors.blue.withValues(alpha: 0.15),
               blurRadius: 20,
               offset: const Offset(0, 5),
             ),
@@ -55,7 +55,7 @@ class HomeShellScreen extends StatelessWidget {
             surfaceTintColor: Colors.white,
             selectedIndex: navigation.index,
             onDestinationSelected: navigation.setIndex,
-            indicatorColor: const Color(0xFF2196F3).withOpacity(0.20),
+            indicatorColor: const Color(0xFF2196F3).withValues(alpha: 0.20),
             labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
             destinations: const [
               NavigationDestination(

@@ -49,7 +49,18 @@ class _DashboardScreenState extends State<DashboardScreen> {
         .watch<ScannerProvider>()
         .selectedPurpose;
     final width = MediaQuery.sizeOf(context).width;
-    final cardHeight = width < 460 ? 148.0 : 156.0;
+
+    double cardAspectRatio;
+
+    if (width < 360) {
+      cardAspectRatio = 1.05; // very small phones
+    } else if (width < 460) {
+      cardAspectRatio = 1.15; // small phones
+    } else if (width < 768) {
+      cardAspectRatio = 1.30; // normal phones
+    } else {
+      cardAspectRatio = 1.45; // tablets/web
+    }
 
     return CustomScrollView(
       slivers: [
@@ -122,8 +133,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
           padding: const EdgeInsets.fromLTRB(16, 18, 16, 8),
           sliver: SliverGrid(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: width < 640 ? 1 : 2,
-              childAspectRatio: width < 640 ? width / cardHeight : 1.45,
+              crossAxisCount: 2, // 2 columns
+              childAspectRatio: cardAspectRatio,
               crossAxisSpacing: 12,
               mainAxisSpacing: 12,
             ),

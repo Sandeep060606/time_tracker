@@ -20,21 +20,20 @@ class GradientAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: leading,
+      backgroundColor: AppTheme.primary,
+      foregroundColor: Colors.white,
+      iconTheme: const IconThemeData(color: Colors.white),
       title: Text(
         title,
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
-        style: const TextStyle(fontWeight: FontWeight.w800),
-      ),
-      actions: actions,
-      flexibleSpace: const DecoratedBox(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [AppTheme.primaryDark, AppTheme.primary, AppTheme.accent],
-          ),
+        style: const TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.w800,
         ),
       ),
+      leading: leading,
+      actions: actions,
     );
   }
 }
